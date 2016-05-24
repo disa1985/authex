@@ -20,6 +20,12 @@ defmodule Authex.Router do
     resources "/users", UserController
   end
 
+  scope "/auth", Authex do
+    pipe_through :browser # Use the default browser stack
+
+    resources "/users", UserController
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", Authex do
   #   pipe_through :api
